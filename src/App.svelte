@@ -2,6 +2,7 @@
   import Credential from './lib/components/Credential.svelte';
   import Skills from './lib/components/Skills.svelte';
   import Title from './lib/components/Title.svelte'
+  import Presentation from './lib/components/Presentation.svelte';
   import { progress } from './lib/stores/progress';
   
   let progressCount;
@@ -12,18 +13,26 @@
 
 <main style="padding:none;margin:none">
   {#if progressCount == 0}
-  <div class="title">
-    <Title/>
-  </div>
+    <div class="block">
+      <Title/>
+    </div>
   {:else if progressCount == 1}
-    <Skills/>
+    <div class="block">
+      <Presentation/>  
+    </div>
+  {:else if progressCount == 2}
+    <div class="block">
+      <Skills/>
+    </div>
   {:else}
-    <Credential/>
+    <div class="block">
+      <Credential/>
+    </div>
   {/if}
 </main>
 
 <style>
-  .title{
+  .block{
     background-color: red;
     height: 100%;
     width: 100%;

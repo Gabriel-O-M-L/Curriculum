@@ -32,7 +32,7 @@
   }
   .presentation{
     list-style: none;
-    background-color: blue;
+    background-color: white;
     position: fixed;
     text-align: center;
     top: 50%;

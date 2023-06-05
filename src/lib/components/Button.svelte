@@ -1,6 +1,7 @@
 <script>
 	import {progress} from "../stores/progress" 
     import { slide } from "svelte/transition";
+    
     let progressCount
     function next(){
         progress.update(n => n+1)
@@ -17,17 +18,16 @@
 			duration: options.duration,
 			css: t => `
 				${slideTrans.css(t,1)}
-				opacity: ${t};
-			`
+				opacity: ${t};`
 		};
 	}
 
 </script>
 <main>
     {#if progressCount != 0}
-        <button in:fadeSlide={{duration:1000,axis:"x"}} out:fadeSlide={{duration:1000,axis:"-x"}} class="forward" style="transform: rotate(180deg);" on:click={back}/>
+        <button transition:fadeSlide={{duration:1000,axis:"x"}} class="forward" style="transform: rotate(180deg);" on:click={back}/>
     {/if}
-    {#if progressCount != 2}
+    {#if progressCount != 3}
         <button class="forward" style="right:0px" on:click={next}/>
     {/if}
 </main>
